@@ -6,7 +6,10 @@ const passport = require("passport");
 require("./models/User");
 require("./services/passport");
 
-mongoose.connect(keys.mongoURI);
+mongoose
+  .connect(keys.mongoURI)
+  .then(() => console.log("MongoDb connected......."))
+  .catch(err => console.log(err));
 
 const app = express();
 
